@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="youtube.css">
+    <title>YouTube Clone</title>
+</head>
+<body>
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+        <div class="header-left">
+            <button class="menu-btn" id="menuBtn" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="sidebar">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 6h18"></path>
+                    <path d="M3 12h18"></path>
+                    <path d="M3 18h18"></path>
+                </svg>
+            </button>
+
+            <a href="#" class="logo">
+                <svg class="logo-mark" viewBox="0 0 32 24" aria-hidden="true">
+                    <rect width="32" height="24" rx="7" fill="#ff3b30"></rect>
+                    <path d="M13 7.5v9l8-4.5z" fill="#ffc72c"></path>
+                </svg>
+                <span>YouTube</span>
+            </a>
+        </div>
+
+        <div class="search-area">
+            <form class="search-box" id="searchForm">
+                <input type="search" id="searchInput" placeholder="Search" autocomplete="off">
+
+                <button type="submit" aria-label="Search">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m20 20-4-4"></path>
+                    </svg>
+                </button>
+            </form>
+
+            <button class="mic-btn" aria-label="Voice search">
+                <svg viewBox="0 0 24 24">
+                    <rect x="9" y="3" width="6" height="12" rx="3"></rect>
+                    <path d="M5 11a7 7 0 0 0 14 0"></path>
+                    <path d="M12 18v3"></path>
+                    <path d="M9 21h6"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="header-right">
+            <div class="create-wrap">
+                <button class="create-btn" id="createBtn" aria-label="Create" aria-haspopup="true" aria-expanded="false" aria-controls="createMenu">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 5v14"></path>
+                        <path d="M5 12h14"></path>
+                    </svg>
+                </button>
+
+                <div class="create-menu" id="createMenu" role="menu" aria-labelledby="createBtn">
+                    <a href="https://www.youtube.com/upload" target="_blank" rel="noopener noreferrer" class="create-item" role="menuitem">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+                            <path d="M12 15v-6"></path>
+                            <path d="m9 11.5 3-3 3 3"></path>
+                        </svg>
+                        <span>Upload video</span>
+                    </a>
+
+                    <a href="https://www.youtube.com/live_dashboard" target="_blank" rel="noopener noreferrer" class="create-item" role="menuitem">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="2.2"></circle>
+                            <path d="M8.3 8.3a5.2 5.2 0 0 0 0 7.4"></path>
+                            <path d="M15.7 8.3a5.2 5.2 0 0 1 0 7.4"></path>
+                            <path d="M5.5 5.5a9 9 0 0 0 0 13"></path>
+                            <path d="M18.5 5.5a9 9 0 0 1 0 13"></path>
+                        </svg>
+                        <span>Go live</span>
+                    </a>
+
+                    <div class="create-divider" role="separator"></div>
+
+                    <a href="https://studio.youtube.com" target="_blank" rel="noopener noreferrer" class="create-item studio" role="menuitem">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+                            <path d="M8 20h8"></path>
+                            <path d="M12 16v4"></path>
+                            <path d="m10.5 7.5 4 2.5-4 2.5z"></path>
+                        </svg>
+                        <span>YouTube Studio</span>
+                        <svg class="ext" viewBox="0 0 24 24">
+                            <path d="M7 17 17 7"></path>
+                            <path d="M8 7h9v9"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <button class="notification-btn" aria-label="Notifications">
+                <svg viewBox="0 0 24 24">
+                    <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+                    <path d="M10 21h4"></path>
+                </svg>
+
+                <span>3</span>
+            </button>
+
+            <button class="profile-btn" aria-label="Account">
+                <img src="mepfp.jpg" alt="Profile">
+            </button>
+        </div>
+    </header>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar" id="sidebar">
+        <nav>
+            <a href="#" class="side-item active">
+                <svg viewBox="0 0 24 24">
+                    <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"></path>
+                    <path d="M9 21v-7h6v7"></path>
+                </svg>
+
+                <span>Home</span>
+            </a>
+
+            <a href="#" class="side-item">
+                <svg viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                    <path d="m10 8 5 4-5 4z"></path>
+                </svg>
+
+                <span>Shorts</span>
+            </a>
+
+            <a href="#" class="side-item">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 6h16v12H4z"></path>
+                    <path d="M8 6V4h8v2"></path>
+                    <path d="M8 11h8"></path>
+                    <path d="M8 15h5"></path>
+                </svg>
+
+                <span>Subscriptions</span>
+            </a>
+            <h3>You</h3>
+
+            <a href="#" class="side-item">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 12a9 9 0 1 0 3-6.7"></path>
+                    <path d="M3 4v6h6"></path>
+                    <path d="M12 7v5l3 2"></path>
+                </svg>
+
+                <span>History</span>
+            </a>
+
+            <a href="#" class="side-item">
+                <svg viewBox="0 0 24 24">
+                    <path d="M5 4h14v16H5z"></path>
+                    <path d="m10 9 5 3-5 3z"></path>
+                </svg>
+
+                <span>Watch later</span>
+            </a>
+
+            <a href="#" class="side-item">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 4h12v16l-6-4-6 4z"></path>
+                </svg>
+
+                <span>Liked videos</span>
+            </a>
+            <hr>
+            <h3>Subscriptions</h3>
+
+            <a href="#" class="channel">
+                <img src="channels4_profile.jpg" alt="">
+                <span>Xander Budnick</span>
+            </a>
+
+            <a href="#" class="channel">
+                <img src="jiddy.jpg" alt="">
+                <span>Jynxzi</span>
+            </a>
+
+            <a href="#" class="channel">
+                <img src="nba.jpg" alt="">
+                <span>NBA</span>
+            </a>
+
+            <a href="#" class="channel">
+                <img src="cammmm.jpg" alt="">
+                <span>Cam Wilder</span>
+            </a>
+
+            <a href="#" class="channel">
+                <img src="udyyy.jpg" alt="">
+                <span>UDY</span>
+            </a>
+
+            <a href="#" class="channel">
+                <img src="mrwhopfp.jpg" alt="">
+                <span>Mrwhostheboss</span>
+            </a>
+
+            <a href="#" class="channel">
+                <img src="fernnn.jpg" alt="">
+                <span>fern</span>
+            </a>
+
+            <a href="#" class="channel">
+                <img src="ryannnnpfp.jpg" alt="">
+                <span>Ryan Trahan</span>
+            </a>
+
+       
+        </nav>
+    </aside>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- Categories -->
+
+        <div class="categories">
+            <button class="active">All</button>
+            <button>Music</button>
+            <button>Gaming</button>
+            <button>Live</button>
+            <button>Movies</button>
+            <button>Sports</button>
+            <button>Animation</button>
+            <button>Comedy</button>
+            <button>Coding</button>
+            <button>Food</button>
+            <button>Vlogs</button>
+        </div>
+
+        <!-- ================= VIDEOS ================= -->
+        <!-- data-category can hold several categories separated by spaces -->
+
+        <section class="video-grid" id="videoGrid">
+
+            <!-- VIDEO 1 -->
+            <article class="video-card" data-category="vlogs">
+                <a href="https://www.youtube.com/watch?v=BqeE1CKrRtE&t=304s" class="thumbnail" target="_blank" rel="noopener">
+                    <img src="imgi_179_hqdefault.jpg" alt="" loading="lazy">
+                    <span>Xander Budnick</span>
+                </a>
+
+                <div class="video-info">
+                    <img class="avatar" src="channels4_profile.jpg" alt="">
+
+                    <div>
+                        <h3><a href="https://www.youtube.com/watch?v=BqeE1CKrRtE&t=304s" target="_blank" rel="noopener">5 Days Solo Island Survival | No Food, Water, or Shelter</a></h3>
+                        <p>Xander Budnick</p>
+                        <p>12M views</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- VIDEO 2 -->
+            <article class="video-card" data-category="gaming">
+                <a href="https://www.youtube.com/watch?v=BrVEzSenEso&t=2369s" class="thumbnail" target="_blank" rel="noopener">
+                    <img src="imgi_202_hqdefault.jpg" alt="" loading="lazy">
+                    <span>Jynxzi</span>
+                </a>
+
+                <div class="video-info">
+                    <img class="avatar" src="jiddy.jpg" alt="">
+
+                    <div>
+                        <h3><a href="https://www.youtube.com/watch?v=BrVEzSenEso&t=2369s" target="_blank" rel="noopener">ONE champion VS EVERY RANK IN RAINBOW SIX SEIGE</a></h3>
+                        <p>Jynxzi</p>
+                        <p>100K views</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- VIDEO 3 -->
+            <article class="video-card" data-category="sports">
+                <a href="https://www.youtube.com/watch?v=I5saZ0pryUU" class="thumbnail" target="_blank" rel="noopener">
+                    <img src="imgi_238_hqdefault.jpg" alt="" loading="lazy">
+                    <span>NBA</span>
+                </a>
+
+                <div class="video-info">
+                    <img class="avatar" src="nba.jpg" alt="">
+
+                    <div>
+                        <h3><a href="https://www.youtube.com/watch?v=I5saZ0pryUU" target="_blank" rel="noopener">Klay Thompson drops 48 points in OT</a></h3>
+                        <p>NBA</p>
+                        <p>20M views</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- VIDEO 4 -->
+            <article class="video-card" data-category="sports">
+                <a href="https://www.youtube.com/watch?v=nS2nvHHAm64&t=1s" class="thumbnail" target="_blank" rel="noopener">
+                    <img src="imgi_215_hq720.jpg" alt="" loading="lazy">
+                    <span>Cam Wilder</span>
+                </a>
+
+                <div class="video-info">
+                    <img class="avatar" src="cammmm.jpg" alt="">
+
+                    <div>
+                        <h3><a href="https://www.youtube.com/watch?v=nS2nvHHAm64&t=1s" target="_blank" rel="noopener">THIS COACH CALLED MY PLAYER A B*TCH & IT GOT PHYSICAL!</a></h3>
+                        <p>Cam Wilder</p>
+                        <p>600K views</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- VIDEO 5 -->
+            <article class="video-card" data-category="vlogs comedy">
+                <a href="https://www.youtube.com/watch?v=XS6N4xFHo4c&t=17s" class="thumbnail" target="_blank" rel="noopener">
+                    <img src="imgi_181_hqdefault.jpg" alt="" loading="lazy">
+                    <span>UDY</span>
+                </a>
+
+                <div class="video-info">
+                    <img class="avatar" src="udyyy.jpg" alt="">
+
+                    <div>
+                        <h3><a href="https://www.youtube.com/watch?v=XS6N4xFHo4c&t=17s" target="_blank" rel="noopener">Will He Cheat On His Birthday? | UDY Loyalty Test</a></h3>
+                        <p>UDY</p>
+                        <p>2M views</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- VIDEO 6 -->
+            <article class="video-card" data-category="vlogs">
+                <a href="https://www.youtube.com/watch?v=hTqw_CGCmNs" class="thumbnail" target="_blank" rel="noopener">
+                    <img src="pokemon.jpg" alt="" loading="lazy">
+                    <span>Mrwhostheboss</span>
+                </a>
+
+                <div class="video-info">
+                    <img class="avatar" src="mrwhopfp.jpg" alt="">
+
+                    <div>
+                        <h3><a href="https://www.youtube.com/watch?v=hTqw_CGCmNs" target="_blank" rel="noopener">I bought the most EXCLUSIVE phones in the World!</a></h3>
+                        <p>Mrwhostheboss</p>
+                        <p>21M views</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- VIDEO 7 -->
+            <article class="video-card" data-category="vlogs">
+                <a href="https://www.youtube.com/watch?v=hK8kzWOBi-U" class="thumbnail" target="_blank" rel="noopener">
+                    <img src="fern.jpg" alt="" loading="lazy">
+                    <span>fern</span>
+                </a>
+
+                <div class="video-info">
+                    <img class="avatar" src="fernnn.jpg" alt="">
+
+                    <div>
+                        <h3><a href="https://www.youtube.com/watch?v=hK8kzWOBi-U" target="_blank" rel="noopener">The FBI's Most Valuable Agent</a></h3>
+                        <p>fern</p>
+                        <p>11M views</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- VIDEO 8 -->
+            <article class="video-card" data-category="vlogs">
+                <a href="https://www.youtube.com/watch?v=31VHogI00T0&t=1337s" class="thumbnail" target="_blank" rel="noopener">
+                    <img src="longesttrainryan.jpg" alt="" loading="lazy">
+                    <span>Ryan Trahan</span>
+                </a>
+
+                <div class="video-info">
+                    <img class="avatar" src="ryannnnpfp.jpg" alt="">
+
+                    <div>
+                        <h3><a href="https://www.youtube.com/watch?v=31VHogI00T0&t=1337s" target="_blank" rel="noopener">I Took the Longest Train Ride in America</a></h3>
+                        <p>Ryan Trahan</p>
+                        <p>31M views</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <p class="empty" id="emptyMsg" hidden>No videos match that. Try another search or category.</p>
+
+        <!-- ================= SHORTS ================= -->
+
+        <section class="shorts" id="shorts">
+            <h2>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M13 2 4 14h7l-1 8 9-12h-7z"></path>
+                </svg>
+                Shorts
+            </h2>
+
+            <div class="shorts-grid">
+
+                <article class="short-card">
+                    <a href="https://www.youtube.com/shorts/bGZmluwqpQU?feature=share" class="short-thumb">
+                        <img src="rakai.jpg" alt="Short 1" loading="lazy">
+                        <button class="short-menu" aria-label="More options" type="button">&#8942;</button>
+                    </a>
+                    <h3>RAKAI gets his weight checked ??🤣👀👀</h3>
+                    <p>2.4M views</p>
+                </article>
+
+                <article class="short-card">
+                    <a href="https://www.youtube.com/shorts/eS-8u7sJCow?feature=share" class="short-thumb">
+                        <img src="twitter card.jpg" alt="Short 2" loading="lazy">
+                        <button class="short-menu" aria-label="More options" type="button">&#8942;</button>
+                    </a>
+                    <h3>TWITTER HAS A CARD ???</h3>
+                    <p>1.2M views</p>
+                </article>
+
+                <article class="short-card">
+                    <a href="https://www.youtube.com/shorts/cK0Ozu9TgOo?feature=share" class="short-thumb">
+                        <img src="carter pcs.jpg" alt="Short 3" loading="lazy">
+                        <button class="short-menu" aria-label="More options" type="button">&#8942;</button>
+                    </a>
+                    <h3>APPLE NEW IPHONE THOUGHTS ???</h3>
+                    <p>5.4M views</p>
+                </article>
+
+                <article class="short-card">
+                    <a href="https://www.youtube.com/shorts/VGuaQhW8f-4?feature=share" class="short-thumb">
+                        <img src="iphoneduospped.jpg" alt="Short 4" loading="lazy">
+                        <button class="short-menu" aria-label="More options" type="button">&#8942;</button>
+                    </a>
+                    <h3>SPEED DOES BACKFLIP WITH IPHONE DUO</h3>
+                    <p>2.1M views</p>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="youtube.js"></script>
+</body>
+</html>
